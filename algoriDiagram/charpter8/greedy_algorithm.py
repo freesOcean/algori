@@ -9,6 +9,7 @@ stations["kfive"] = set(["ca", "az"])
 
 final_stations = set()
 
+
 #贪心算法:遍历所有的集合，从中选择覆盖了最多的未覆盖名称的集合。策略就是每次都选取剩余集合中包含最多个当前还未选择的名称的集合。
 while states_needed:
     best_station = None
