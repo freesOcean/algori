@@ -116,6 +116,24 @@ public class UnidirectLinkList{
         return append();
     }
 
+    public void reverseWithNoReturn(){
+        if(head==null||head.next==null){
+            return ;
+        }
+
+        LinkNode pre = null;
+        while(head!=null && head.next!=null){
+            LinkNode next = head.next;
+            head.next = pre;
+            pre = head;
+            head = next;
+        }
+
+        head.next = pre;
+    
+
+    }
+
     public String append(){
         if(head==null || head.next ==null){
             return "";
@@ -202,6 +220,30 @@ public class UnidirectLinkList{
         return "not found";
     }
 
+    public void deleteNodeWithNoArags(int n){
+        if(head==null||n<0){
+            return;
+        }
+
+
+        if(n==0){
+            head = head.next;
+            return;
+        }
+
+        int index = 0;
+        LinkNode slow = head;
+        while(slow!=null && slow.next!=null){
+            if(index == n-1){
+                slow.next = slow.next.next;
+                return;
+            }
+            slow = slow.next;
+            ++index;
+        }
+        
+
+    }
     /**
      * 删除链表中值等于某某的节点
      * @param node

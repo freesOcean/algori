@@ -3,6 +3,7 @@ def quicksort(array):
     if len(array)<2:
         return array#基线条件
     else:
+        #分区点
         pivot = array[0]
         #递归条件
         less = [i for i in array[1:] if i<=pivot]
