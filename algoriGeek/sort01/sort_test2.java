@@ -26,6 +26,25 @@ public class sort_test2 {
             src[i] = arr;
         }
 
+         //拷贝一份数组
+         int[][] cha = new int[num][count];
+         for(int i=0;i<num;i++){
+             int[]arr = new int[count];
+             for(int j=0;j<count;j++){
+                 arr[j] = src[i][j];
+             }
+             cha[i] = arr;
+         }
+         //插入排序
+         long startCha = System.currentTimeMillis();
+         for(int i=0;i<num;i++){
+             s1.sort(cha[i], count);
+         }
+         long endCha = System.currentTimeMillis();
+         //计算时间
+         long dtimec = endCha - startCha;
+         System.out.println("插入时间:"+dtimec);
+
        
         //拷贝一份数组
         int[][] mao = new int[num][count];
@@ -45,26 +64,9 @@ public class sort_test2 {
         //计算时间
         long dtime = endMao - startMao;
         System.out.println("冒泡时间:"+dtime);
-
-
-        //拷贝一份数组
-        int[][] cha = new int[num][count];
-        for(int i=0;i<num;i++){
-            int[]arr = new int[count];
-            for(int j=0;j<count;j++){
-                arr[j] = src[i][j];
-            }
-            cha[i] = arr;
-        }
-        //插入排序
-        long startCha = System.currentTimeMillis();
-        for(int i=0;i<num;i++){
-            s1.sort(cha[i], count);
-        }
-        long endCha = System.currentTimeMillis();
-        //计算时间
-        long dtimec = endCha - startCha;
-        System.out.println("插入时间:"+dtimec);
+        
+        
+       
 
 
     }

@@ -11,7 +11,8 @@ public class quick_sort {
     public void quickSort(int[] a, int p, int r) {
         if (p >= r)
             return;
-        int q = partition(a, p, r);
+        // int q = partition(a, p, r);
+        int q = partition_s(a, p, r);
         quickSort(a, p, q - 1);
         quickSort(a, q + 1, r);
     }
@@ -38,5 +39,35 @@ public class quick_sort {
         a[end] = tmp;
         return i;
     }
+
+
+    public int partition_s(int[]a,int p,int r){
+        int[] less = new int[r-p];
+        int[] more = new int[r-p];
+    
+        int k = 0;
+        int m = 0;
+        int pivot = a[r];
+        for(int i= p;i<r;++i){
+          if(a[i]<=pivot){
+            less[k++] = a[i]; 
+          }else{
+            more[m++] = a[i];
+          }
+        }
+    
+        //将元素拷贝到a[p..r]
+        int i = 0 ;
+        for(;i<k;++i){
+          a[i+p] = less[i];
+        }
+        a[i+p] = pivot;
+        for(int j=0;j<m;++j){
+          a[i+p+1+j] = more[j]; 
+        }
+    
+        return i+p;
+    
+      }
 
 }

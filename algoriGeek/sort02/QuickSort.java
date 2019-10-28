@@ -18,7 +18,7 @@ public class QuickSort {
     quickSortInternally(a, q+1, r);
   }
 
-  public static int partition(int[] a, int p, int r) {；
+  public static int partition(int[] a, int p, int r) {
     int pivot = a[r];
     int i = p;
     for(int j = p; j < r; ++j) {
@@ -30,6 +30,7 @@ public class QuickSort {
           a[i++] = a[j];
           a[j] = tmp;
         }
+        
       }
     }
 
@@ -40,4 +41,37 @@ public class QuickSort {
     System.out.println("i=" + i);
     return i;
   }
+
+
+  public int partition_s(int[]a,int p,int r){
+    int[] less = new int[r-p];
+    int[] more = new int[r-p];
+
+    int k = 0;
+    int m = 0;
+    int pivot = a[r];
+    for(int i= p;i<r;++i){
+      if(a[i]<=pivot){
+        less[k++] = a[i]; 
+      }else{
+        more[m++] = a[i];
+      }
+    }
+
+    //将元素拷贝到a[p..r]
+    int i = 0 ;
+    for(;i<k;++i){
+      a[i+p] = less[i];
+    }
+    a[i+p] = pivot;
+    for(int j=0;j<m;++j){
+      a[i+p+1+j] = more[j]; 
+    }
+
+    return i+p;
+
+  }
+
 }
+
+
