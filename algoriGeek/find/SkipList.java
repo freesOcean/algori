@@ -66,7 +66,7 @@ public class SkipList {
             while (p.forward[i] != null && p.forward[i].data < value) {
                 p = p.forward[i];
             }
-
+            
             update[i] = p;
         }
 

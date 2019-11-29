@@ -23,6 +23,14 @@ public class sort_test {
         for (int a : re3) {
             System.out.println(a);
         }
+
+        // 选择排序
+        int[] aaa = { 2, 0, 4, 1, 6 };
+        s1.xuanze_sort(aaa, 5);
+        System.out.println("选择排序：");
+        for (int a : aaa) {
+            System.out.println(a);
+        }
     }
 
 }

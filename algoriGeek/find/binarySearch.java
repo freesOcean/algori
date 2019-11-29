@@ -9,6 +9,7 @@ public class binarySearch{
         int t = 3;
         int re = b.search_first_more(a, n, t);
         System.out.println(re);
+        
 
     }
 
