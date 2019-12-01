@@ -12,8 +12,10 @@ public class UnidirectLinkList{
     public  LinkNode head;
 
     /**
+     * 
      * 普通插入结点
      * @param node
+     * 
      */
     public void insert(LinkNode node){
         if(head == null){
