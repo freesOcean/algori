@@ -6,8 +6,8 @@ public class binarySearch{
         int[]a = new int[]{1,2,4,4,4,5,6,8};
         binarySearch b = new binarySearch();
         int n = 8;
-        int t = 3;
-        int re = b.search_first_more(a, n, t);
+        int t = 4;
+        int re = b.search_last_less(a, n, t);
         System.out.println(re);
 
     }
@@ -111,6 +111,13 @@ public class binarySearch{
         return -1;
     }
 
+    /**
+     * 查找第一个大于等于的值
+     * @param a
+     * @param n
+     * @param t
+     * @return
+     */
     public int search_first_more(int[]a,int n,int t){
         int low = 0;
         int heigh = n-1;
@@ -124,6 +131,31 @@ public class binarySearch{
                 }else {
                     heigh = mid -1;
                 }
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 查找最后一个小于等于的值
+     * @param a
+     * @param n
+     * @param t
+     * @return
+     */
+    public int search_last_less(int[]a,int n,int t){
+        int low = 0;
+        int heigh = n-1;
+        while(low<=heigh){
+            int mid = low + ((heigh-low)>>1);
+            if(t>=a[mid]){
+                if(mid == n-1 || a[mid+1] >t){
+                    return mid;
+                }else {
+                    low = mid +1;
+                }
+            }else{
+                heigh = mid -1;
             }
         }
         return -1;
